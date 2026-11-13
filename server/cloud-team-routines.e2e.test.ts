@@ -223,8 +223,8 @@ it("a member's routine for the shared chat lands where everyone reads it, run by
     expect((await routinesOf(token)).routines.map((routine) => routine.id)).not.toContain(justMe);
     expect((await team.as(token, "GET", `/api/threads/${ran.threadId}/messages`)).status).toBe(404);
   }
-  // A teammate's own MausBot takes no routine from anyone else, and one Bob sets up for his is his alone.
-  const bobsMausBot = (await botsOf(bob)).find((bot) => bot.name === "MausBot")!;
+  // A teammate's own ACGS takes no routine from anyone else, and one Bob sets up for his is his alone.
+  const bobsMausBot = (await botsOf(bob)).find((bot) => bot.name === "ACGS")!;
   expect((await team.as(owner, "POST", "/api/routines", { name: "Peek", prompt: "x", botId: bobsMausBot.id, schedule: LATER })).status).toBe(404);
   const own = await team.as(bob, "POST", "/api/routines", { name: "Bee check", prompt: "Check the bees", botId: bobsMausBot.id, schedule: LATER });
   expect(own.status, JSON.stringify(own.body)).toBe(201);

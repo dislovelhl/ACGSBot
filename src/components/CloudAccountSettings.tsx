@@ -165,7 +165,7 @@ export function TeamPeopleCard({ team }: { team: { name: string; cloudPage?: str
   </Card>;
 }
 
-/** One MausBot account, shown as two pages: `account` (who is signed in, sign in and out) and `plan` (the plan, its Cloud
+/** One ACGS account, shown as two pages: `account` (who is signed in, sign in and out) and `plan` (the plan, its Cloud
  * and cancelling it). */
 export function CloudAccountSettings({ linkRequest = 0, cloudHome = false, teamHome, onAddCloud, onSignIn, part = "plan", advanced = true, usage = null, upgrade, extra, avatar }: {
   /** the person's picture, for the account card's leading slot */

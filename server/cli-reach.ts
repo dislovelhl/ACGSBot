@@ -62,7 +62,7 @@ const clock = (at: number) => new Date(at).toLocaleTimeString([], { hour: "2-dig
 const NOTE: Record<Route, string> = {
   "public-url": "",
   domain: "",
-  tunnel: "MausBot web address",
+  tunnel: "ACGS web address",
   tailscale: "your tailnet",
   lan: "this network only, not encrypted",
 };
@@ -86,7 +86,7 @@ export function noRouteLines(port: number, prefix: string): string[] {
     `  ${prefix} serve --domain maus.example.com  we get the certificate (ports 80, 443)`,
     `  ${prefix} serve --tailscale                your tailnet (needs Tailscale)`,
     `  ${prefix} serve --lan                      this network only, not encrypted`,
-    `  ${prefix} serve --tunnel                   a free MausBot web address; sign in first: ${prefix} login`,
+    `  ${prefix} serve --tunnel                   a free ACGS web address; sign in first: ${prefix} login`,
     `Sign in from a browser on this machine with the link from: ${prefix} pair`,
   ];
 }

@@ -1,7 +1,7 @@
 // Adapted from pingdotgg/t3code@00cdceb1 packages/client-runtime/src/preview/serverBrowserStream.ts, MIT License,
 // Copyright (c) 2026 T3 Tools Inc. (full text in third_party/t3-code/LICENSE); modified: OpenMausBot's routes and
 // access, a viewer that may operate sizes the page while it only watches, a larger frame cap is sent in place and a
-// reconnect opens with the newest size and cap, and OpenMausBot's own messages are passed on.
+// reconnect opens with the newest size and cap, and ACGSBot's own messages are passed on.
 
 import { t } from "./i18n";
 
@@ -17,7 +17,7 @@ export type PreviewStreamHostSetup =
 /** The server's LIBRARIES_COMMAND and SANDBOX_STEPS_URL: a close reason is too short to carry the link. */
 export const PREVIEW_STREAM_LIBRARIES_COMMAND = "sudo openmausbot browser install --with-deps";
 export const PREVIEW_STREAM_SANDBOX_STEPS_URL =
-  "https://github.com/milind-soni/OpenMausBot/blob/main/docs/deploy-vps.md#ubuntu-2404-browser-sandbox";
+  "https://github.com/dislovelhl/ACGSBot/blob/main/docs/deploy-vps.md#ubuntu-2404-browser-sandbox";
 
 export type PreviewViewportSetting =
   | { readonly mode: "fill" }
@@ -257,7 +257,7 @@ export interface PreviewStreamEvents {
   readonly onPopup?: (tabId: string) => void;
   /** The page opened a file picker (`null` once answered or replaced). */
   readonly onFileChooser?: (chooser: PreviewStreamFileChooser | null) => void;
-  /** OpenMausBot's own messages: tabs, nav, selectPopup, cursor, authPrompt, starting, notice, asleep, awake. */
+  /** ACGSBot's own messages: tabs, nav, selectPopup, cursor, authPrompt, starting, notice, asleep, awake. */
   readonly onMessage?: (message: Readonly<Record<string, unknown>>) => void;
   /** Input sent while disconnected is dropped. */
   readonly onConnectedChange: (connected: boolean) => void;

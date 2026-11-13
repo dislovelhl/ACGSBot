@@ -13,7 +13,7 @@ Two repositories change:
 
 - **openmaus-cloud** (Admin): the X relay, its per-tier allowance, tokens for
   Cloud homes and for signed-in desktops.
-- **OpenMausBot** (app): the included credential replaces the person's token;
+- **ACGSBot** (app): the included credential replaces the person's token;
   the desktop fetches its token from its Cloud sign-in; the bot setting shows
   X research as a Cloud plan feature.
 
@@ -87,7 +87,7 @@ Two repositories change:
 - The Cloud page's "Included" block gains `x: { calls, max }`.
 - `deploy/admin.env.example`, `docs/consumer-cloud.md`.
 
-## App (OpenMausBot)
+## App (ACGSBot)
 
 ### Removed
 

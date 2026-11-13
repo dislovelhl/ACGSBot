@@ -10,7 +10,7 @@ reruns and recovery. It
 builds macOS (arm64 + x64, signed, notarized, stapled), Windows, and Ubuntu
 from a single pinned commit, verifies every artifact the way a user would
 receive it, and assembles the canonical draft in
-[OpenMausBot releases](https://github.com/milind-soni/OpenMausBot/releases).
+[ACGSBot releases](https://github.com/dislovelhl/ACGSBot/releases).
 The exact same assets are also staged in the public legacy releases repo so
 installed builds from 0.1.46 and earlier can update across the repository
 migration.
@@ -87,7 +87,7 @@ it stops the run, so a network error never skips the move-back check or drops
 the history.
 
 Servers read
-`https://raw.githubusercontent.com/milind-soni/OpenMausBot/channels/stable.json`:
+`https://raw.githubusercontent.com/dislovelhl/ACGSBot/channels/stable.json`:
 the update check (`server/update-check.ts`) for the version, and
 `deploy/update.sh` for the image to pull. `latest` still follows `main` and is
 never moved by this workflow. Running it again with the same version changes
@@ -126,7 +126,7 @@ to one side's steps belongs in the other too.
 
 `app-update.yml` is baked into every packaged desktop app. Builds through
 0.1.46 point to `milind-soni/openmausbot-releases`; newer builds point to
-`milind-soni/OpenMausBot`. For that reason:
+`dislovelhl/ACGSBot`. For that reason:
 
 1. Every new release is published byte-for-byte to both repositories during
    the bridge period.
@@ -161,7 +161,7 @@ must fail the build, not ship an installer that downloads them on first use.
 
 ## One-time setup: release secrets
 
-Set these in **OpenMausBot → Settings → Secrets and variables → Actions**.
+Set these in **ACGSBot → Settings → Secrets and variables → Actions**.
 
 The **Prepare next release** workflow also needs
 **Settings → Actions → General → Workflow permissions → Allow GitHub Actions
