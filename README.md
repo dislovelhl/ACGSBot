@@ -12,8 +12,9 @@ Every bot in the sidebar is a real agent — Claude or Codex running locally und
 personality, its own model, its own cloud computer, and its own connected apps.
 Talk to them like contacts. Watch them work. Approve what matters.
 
-ACGSBot ships three ACGS team packages — **Governance**, **Engineering** and **Go-to-Market** — in
-[`packages/acgs/`](packages/acgs/). Import one to create its bots, roles and team brief in one step.
+This repository includes three ACGS team packages — **Governance**, **Engineering** and **Go-to-Market** —
+in [`packages/acgs/`](packages/acgs/). They are not bundled into the app: import a file to create its bots,
+roles and team brief in one step.
 
 <br>
 
