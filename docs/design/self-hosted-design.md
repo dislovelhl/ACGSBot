@@ -1,4 +1,4 @@
-# Self-hosted MausBot — design
+# Self-hosted ACGS — design
 
 Version 1, 2026-11-10. Each section says what it decides; [Status against the code](#status-against-the-code) says
 what exists today. Anything not listed there as built is planned.
@@ -105,12 +105,12 @@ The Coolify hosted-workspace path (never proven on a real install). `fleet` stay
 
 ## The customer-run mode
 
-Decided: the server installer brings MausBot; the connector attaches to that install and the Admin never starts it.
+Decided: the server installer brings ACGS; the connector attaches to that install and the Admin never starts it.
 
 - **Chosen on the server.** `connector/install.sh` picks `customer-run` when `/opt/openmausbot/compose.yaml` exists
   and starts the connector with `MAUSBOT_MODE=customer-run`; the enrolment writes the mode into the connector's state.
   The stricter of the two always wins, and nothing the Admin sends changes it. A connector started in `operated` mode
-  refuses to enrol where the owner's MausBot already runs.
+  refuses to enrol where the owner's ACGS already runs.
 - **Enforced on the server, three times over for jobs.** A job outside the list is refused as it arrives
   (`checkCustomerRunJob`), again at the desk every job passes through (`jobDesk`), and the home the connector attached
   to has no code path for it (`AdoptedHome`). Each refusal is a line in the audit log.

@@ -70,7 +70,7 @@ reveals nothing about `psk`: the two are separate HMAC outputs under different l
 - **Phone parsing rules:**
   - A malformed `e2e` rejects the whole invite. That includes bad base64, bad JSON, a bad point, `h` without `r` or `r` without `h`, and a host
     outside the allowlist.
-  - `v > 1` shows "Update the MausBot app to pair with this computer". It NEVER falls back to plain pairing.
+  - `v > 1` shows "Update the ACGS app to pair with this computer". It NEVER falls back to plain pairing.
   - Old app builds ignore the unknown parameter, as they do today.
 - **Direct routes** come from the existing `endpoints` and `hosts` parameters. The phone turns each `lan`, `bonjour` or `tailnet` URL
   `http://H:P` into `ws://H:P/v1/e2e`. A `hosted` URL is never used for E2E.
@@ -319,7 +319,7 @@ own the `sid`, and a `sid` is single-use with a 10 s life. The relay then splice
 | Message 2 failed / pin mismatch | "Couldn't verify your computer. Pair again from your computer's Settings." |
 | GoAway(3) inside the session, or close 4001 on a direct route | "This phone was removed from your computer. Pair again." |
 | Close 4001 through the relay with no GoAway(3) before it | Nothing yet: a relay can forge close codes, so keep retrying with backoff. It reads as "removed" only if a direct route also answers 4001 |
-| `e2e.v > 1` or 426 | "Update the MausBot app to connect to this computer." |
+| `e2e.v > 1` or 426 | "Update the ACGS app to connect to this computer." |
 | 4429 / 4503 lasting more than 30 s | "MausBot Relay is busy. Trying again…" |
 
 ## 13. Rules the vectors pin

@@ -28,7 +28,7 @@ describe("openmausbot serve --relay", () => {
   it("prints the relay QR for a phone code, and the usual block for everything else", () => {
     const body = { inviteUrl: invite, expiresAt: Date.now() + 600_000, relay: status() };
     const block = relayPairingBlock(body, true, "openmausbot")!;
-    expect(block).toContain("Scan with the MausBot app. It connects through MausBot Relay, end-to-end encrypted");
+    expect(block).toContain("Scan with the ACGS app. It connects through MausBot Relay, end-to-end encrypted");
     expect(block).toContain("Paired phones: 1 of 20. Remove one: openmausbot devices revoke ID");
     expect(relayPairingBlock(body, false, "openmausbot")).toBeNull();
     expect(relayPairingBlock({ ...body, relay: undefined }, true, "openmausbot")).toBeNull();
@@ -37,7 +37,7 @@ describe("openmausbot serve --relay", () => {
 
   it("says why a phone cannot pair yet, in the person's terms", () => {
     expect(relayProblemLines(null, "openmausbot")).toEqual(["MausBot Relay is off on this server. Start it with: openmausbot serve --relay"]);
-    expect(relayProblemLines(status({ grant: "signed-out", relay: "off" }), "openmausbot")[0]).toMatch(/^MausBot Relay needs this machine signed in to a MausBot account: openmausbot login --relay/);
+    expect(relayProblemLines(status({ grant: "signed-out", relay: "off" }), "openmausbot")[0]).toMatch(/^MausBot Relay needs this machine signed in to an ACGS account: openmausbot login --relay/);
     expect(relayProblemLines(status({ grant: "unavailable", relay: "off" }), "npx openmausbot")[0]).toMatch(/not available for this machine right now\. The server keeps working here/);
     expect(relayProblemLines(status({ relay: "connecting", node: null }), "openmausbot")[0]).toMatch(/^Can't reach MausBot Relay yet\. The server keeps working here/);
     expect(relayProblemLines(status(), "openmausbot")).toEqual([]);

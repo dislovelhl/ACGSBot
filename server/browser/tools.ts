@@ -1,4 +1,4 @@
-// The bots' browser tools: OpenMausBot's agent_browser_* names over T3 Code's preview tool semantics.
+// The bots' browser tools: ACGSBot's agent_browser_* names over T3 Code's preview tool semantics.
 //
 // Adapted from pingdotgg/t3code@00cdceb1 apps/server/src/mcp/toolkits/preview/tools.ts and
 // packages/contracts/src/previewAutomation.ts, MIT License, Copyright (c) 2026 T3 Tools Inc. (full text in

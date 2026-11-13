@@ -4,7 +4,7 @@ import { EXAMPLE_ADDRESS, isLoopbackHost, parseServerInput, serverTransport } fr
 import { inTailscaleRange, isTailnetName } from "./tailnet.mjs";
 
 const DESCRIPTOR = "/.well-known/openmausbot/environment";
-/** A MausBot desktop app's Remote access (companion/src/routes.ts) refuses the descriptor with this until a phone pairs. */
+/** An ACGS desktop app's Remote access (companion/src/routes.ts) refuses the descriptor with this until a phone pairs. */
 const DESKTOP_APP_REFUSAL = /^pair this device from Remote access settings/;
 
 /** The sentence for each problem, in the window's catalog and main's alike ({host}, {example} filled in). */
@@ -109,7 +109,7 @@ async function describe(origin, fetchImpl, timeoutMs) {
 /**
  * Reads the sheet's fields and finds the server: `{ outcome: "found", origin, label, version, transport, code, credential }`,
  * or `{ outcome: "problem", problem, host?, code? }` with one of parseServerInput's problems or: unreachable, dns,
- * certificate, notMausBot, desktopApp (another computer's MausBot desktop app, which can't be a server), loopback (an address on this computer that is this app's own workspace, or nothing at all).
+ * certificate, notMausBot, desktopApp (another computer's ACGS desktop app, which can't be a server), loopback (an address on this computer that is this app's own workspace, or nothing at all).
  * `ownEnvironmentId()`: this app's own local workspace, so a "this computer" link copied off a server is caught.
  */
 export async function probeServer({ address, code = "", fetch: fetchImpl, ownEnvironmentId = async () => null, timeoutMs = 6_000, platform = process.platform, tailnet = () => true }) {

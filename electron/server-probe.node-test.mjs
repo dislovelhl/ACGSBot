@@ -104,11 +104,11 @@ test("connecting opens only the server it found; a pasted link asks first and th
   await assert.rejects(make(true).connectAsking("http://203.0.113.9"), /native\.connect\.publicHttp 203\.0\.113\.9/);
 });
 
-test("another computer's desktop app (its Remote access answers 401) is named as a desktop app, not as no MausBot at all", async () => {
+test("another computer's desktop app (its Remote access answers 401) is named as a desktop app, not as no ACGS at all", async () => {
   const desktop = () => new Response(JSON.stringify({ error: "pair this device from Remote access settings on the host computer" }), { status: 401, headers: { "content-type": "application/json" } });
   assert.deepEqual(await probeServer({ address: "192.168.1.30:8799", fetch: fakeFetch({ "http://192.168.1.30:8799": desktop }).fetch, platform: "linux" }), { outcome: "problem", problem: "desktopApp", host: "192.168.1.30:8799" });
   assert.deepEqual(await probeServer({ address: "192.168.1.30:8799", fetch: fakeFetch({ "https://192.168.1.30:8799": desktop }).fetch, platform: "linux" }), { outcome: "problem", problem: "desktopApp", host: "192.168.1.30:8799" });
-  // Any other refusal still reads as no MausBot server.
+  // Any other refusal still reads as no ACGS server.
   const otherRefusal = () => new Response(JSON.stringify({ error: "unauthorized" }), { status: 401 });
   assert.equal((await probeServer({ address: "maus.example.com", fetch: fakeFetch({ "https://maus.example.com": otherRefusal }).fetch })).problem, "notMausBot");
   const oddError = () => new Response(JSON.stringify({ error: { toString: null } }), { status: 401 });

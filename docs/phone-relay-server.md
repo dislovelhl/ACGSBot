@@ -1,6 +1,6 @@
 # Phones through MausBot Relay on a self-hosted server
 
-`openmausbot serve --relay` lets the MausBot phone app pair with a server on a
+`openmausbot serve --relay` lets the ACGS phone app pair with a server on a
 VPS by scanning a QR code, from anywhere: no domain, no open port, no VPN and
 no tunnel address. The server dials out to MausBot Relay, the phone dials the
 relay, and the relay passes sealed bytes it cannot open. It is the same
@@ -241,9 +241,9 @@ The server keeps working on every other way in; the relay only adds one. What
 | Situation | Line |
 |---|---|
 | The machine serves a tunnel, runs on a fleet credential or holds a tunnel address | MausBot Relay stays off here: (why). A relay token would make that tunnel go for good; use the relay on a machine signed in with `openmausbot login --relay`. |
-| Not signed in, or the sign-in expired | MausBot Relay needs this machine signed in to a MausBot account: `openmausbot login --relay` |
+| Not signed in, or the sign-in expired | MausBot Relay needs this machine signed in to an ACGS account: `openmausbot login --relay` |
 | The control plane says no (rollout, blocked, switched off) | MausBot Relay is not available for this machine right now. The server keeps working here; it asks again every half hour. |
-| The control plane does not answer | The MausBot account service did not answer. The server keeps working here and keeps trying. |
+| The control plane does not answer | The ACGS account service did not answer. The server keeps working here and keeps trying. |
 | The relay does not answer | Can't reach MausBot Relay yet. The server keeps working here and keeps trying; phones pair once it connects. |
 
 The server log says `phone relay: connecting`, `phone relay: connected via

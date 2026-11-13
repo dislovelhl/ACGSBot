@@ -290,7 +290,7 @@ describe("phone MCP claim while a person may hold the phone", () => {
   it.each([
     [{ reason: "person" }, PERSON_TEXT],
     [{ reason: "handed-back" }, HANDED_BACK_TEXT],
-    [{}, "OpenMausBot could not reserve the phone for this call. This call was not performed; try again, or start a new turn if it keeps failing."],
+    [{}, "ACGSBot could not reserve the phone for this call. This call was not performed; try again, or start a new turn if it keeps failing."],
   ])("tells the bot what a 423 %j means", async (body, message) => {
     await expect(createPhoneClaim(harnessEnv, refusal(body))()).resolves.toEqual({ ok: false, message });
   });

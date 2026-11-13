@@ -1,12 +1,12 @@
 #!/bin/sh
-# Runs on a customer-run server, as root, outside every container: systemd starts it when the MausBot connector leaves
+# Runs on a customer-run server, as root, outside every container: systemd starts it when the ACGS connector leaves
 # an update request (mausbot-update.path watches for the file). It hands the request to the server's own updater,
 # update.sh in the install's folder, the same command its owner runs by hand, and writes down how that ended.
 #
-# The request is two lines, `id=<job id>` and `image=<image>`. The image must be MausBot's server image pinned by
+# The request is two lines, `id=<job id>` and `image=<image>`. The image must be ACGS's server image pinned by
 # digest, and its version must not be older than the one running here or than FLOOR; anything else is refused here,
 # whatever the connector wrote. Nothing else in the request is read. To go back to an older version, run update.sh
-# yourself: that is yours to decide, never MausBot's.
+# yourself: that is yours to decide, never ACGS's.
 set -u
 
 DIR="${MAUSBOT_UPDATE_DIR:-/var/lib/mausbot/update}"

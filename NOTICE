@@ -1,3 +1,12 @@
+ACGSBot
+Modifications Copyright 2026 ACGS.
+
+ACGSBot is a modified version of OpenMausBot (https://github.com/milind-soni/OpenMausBot).
+ACGS modified files throughout this repository, chiefly product naming, branding,
+release configuration and the removal of the enterprise/ folder; see
+scripts/rebrand-acgs.mjs and the git history for each change.
+The notices below are retained from OpenMausBot.
+
 OpenMausBot
 Copyright 2026 Milind Soni and OpenMausBot contributors
 

@@ -73,7 +73,7 @@ install_until_https() { # evidence-file [the install command, when not the usual
   set -- "$file"
   cat "$1"
   [ "$status" = 1 ] || fail "the install exited $status, not 1"
-  contains "$1" "MausBot is running, but https://$DOMAIN did not answer within 20 seconds" "the install did not end at the certificate"
+  contains "$1" "ACGS is running, but https://$DOMAIN did not answer within 20 seconds" "the install did not end at the certificate"
   [ "$(sudo docker inspect --format '{{.State.Health.Status}}' "$(cd "$DIR" && sudo docker compose ps -q omb)")" = healthy ] || fail "the server is not healthy"
   (cd "$DIR" && sudo docker compose exec -T omb curl -sf http://127.0.0.1:8799/api/health) | grep -q openmausbot || fail "the server does not answer inside its container"
   curl -sS -o /dev/null -w '%{http_code}' --max-time 10 -H "Host: $DOMAIN" http://127.0.0.1/ | grep -qx 308 || fail "Caddy does not redirect port 80 to HTTPS"
@@ -116,7 +116,7 @@ done
 
 step "the checks pass once the DNS record is set aside"
 "${INSTALL[@]}" --check --domain "$DOMAIN" | tee "$OUT/check-ready.txt"
-contains "$OUT/check-ready.txt" "This server is ready for MausBot. Nothing was changed." "--check did not pass"
+contains "$OUT/check-ready.txt" "This server is ready for ACGS. Nothing was changed." "--check did not pass"
 
 step "install: the server is healthy behind Caddy, on a pinned release, with its data in one folder"
 install_until_https "$OUT/install.txt"
@@ -291,7 +291,7 @@ contains "$OUT/uninstall.txt" "Your data is kept in $DIR/data" "uninstall did no
 step "install again on the kept data"
 "${INSTALL[@]}" >"$OUT/reinstall.txt" 2>&1 || true
 cat "$OUT/reinstall.txt"
-contains "$OUT/reinstall.txt" "MausBot is running, but https://$DOMAIN did not answer" "the reinstall did not come back up"
+contains "$OUT/reinstall.txt" "ACGS is running, but https://$DOMAIN did not answer" "the reinstall did not come back up"
 [ "$(sudo cat "$DIR/data/e2e-marker")" = kept ] || fail "the reinstall touched the data"
 
 printf '\nAll steps passed. Evidence: %s\n' "$OUT"

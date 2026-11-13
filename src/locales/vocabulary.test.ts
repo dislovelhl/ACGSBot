@@ -13,7 +13,7 @@ const RETIRED: ReadonlyArray<readonly [string, RegExp, string]> = [
   ["OpenMausBot Cloud", /OpenMausBot Cloud/i, "MausBot Cloud"],
   ["MausBot Pro", /MausBot Pro\b/, "MausBot Cloud"],
   // \b before "_" fails, so environment names such as OMB_PUBLIC_IPV4 pass.
-  ["OMB", /\bOMB\b/, "MausBot"],
+  ["OMB", /\bOMB\b/, "ACGS"],
   ["Cloud box", /Cloud box/i, "cloud desktop"],
   ["Hosted desktop", /Hosted desktop/i, "cloud desktop"],
   ["Cloud VM", /Cloud VM/i, "cloud desktop"],
@@ -58,7 +58,7 @@ const isSource = (name: string) => /\.(?:ts|tsx|mjs|cjs|js)$/.test(name) && !/\.
 const ALLOWED: ReadonlyArray<{ file: string; snippet?: string; why: string }> = [
   { file: "shared/credential-request.ts", snippet: "when Boat is selected", why: "the card that asks for a person's own Boat key" },
   { file: "server/boat-create-idempotency.ts", snippet: "unnamed Boat", why: "own-key repair: boat.dev's own name for a machine" },
-  { file: "src/lib/boat-offer.ts", snippet: "MausBot introduced me", why: "the email a person sends Boat to claim its credit" },
+  { file: "src/lib/boat-offer.ts", snippet: "ACGS introduced me", why: "the email a person sends Boat to claim its credit" },
   { file: "server/workspace-backup.ts", snippet: "OMB-WORKSPACE-1", why: "a backup file's format marker" },
   { file: "electron/company-backups.mjs", snippet: "OMB-WORKSPACE-1", why: "a backup file's format marker" },
 ];
@@ -192,7 +192,7 @@ describe("one name per thing", () => {
       "Auto uses this Boat", "New Boat computer",
     ]) expect(retiredIn(bad), bad).not.toEqual([]);
     for (const good of [
-      "Sign in to MausBot Cloud", "Pro active · verified by MausBot Cloud", "Restart OpenMausBot", "locked by another OpenMausBot process",
+      "Sign in to MausBot Cloud", "Pro active · verified by MausBot Cloud", "Restart ACGSBot", "locked by another ACGSBot process",
       "set OMB_PUBLIC_IPV4", "Open My Cloud", "Open the Cloud", "Choose Cloud desktop to wake", "Auto, Cloud desktop or Browser",
       "Included with your Cloud plan", "Add a Boat API key in Settings → API keys", "Connect Boat", "Check boat.dev",
       "Bots here can get their own cloud desktops from Boat, a paid service", "Cloud desktops by Boat",

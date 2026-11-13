@@ -7,7 +7,7 @@ change to it on `main` and every install that runs this version or later picks i
 ## How it works
 
 - **One file on `main`.** The app's server downloads
-  `https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/announcements/announcements.json` when a page of the app
+  `https://raw.githubusercontent.com/dislovelhl/ACGSBot/main/announcements/announcements.json` when a page of the app
   asks for the cards: at launch, then about hourly while the app is in use. Whoever can merge to `main` can publish a card;
   there is no other sign-in and no backend.
 - **The server fetches, the page decides.** The desktop app's own server, a MausBot Cloud and a self-hosted server all
@@ -77,7 +77,7 @@ shows it again to everyone.
       "kind": "sponsor",
       "label": "Sponsor",
       "title": "Acme Inference: $5 of free credit",
-      "body": "Acme Inference sponsors MausBot. New accounts get $5 of credit for any model they serve.",
+      "body": "Acme Inference sponsors ACGS. New accounts get $5 of credit for any model they serve.",
       "primary": { "label": "Get a key", "action": { "open_url": "https://example.com/acme?utm_source=openmausbot&utm_medium=sponsorship" } },
       "secondary": { "label": "Add a key", "action": { "open": "api_keys" } },
       "starts": "2026-12-01T00:00:00Z",
@@ -163,7 +163,7 @@ that use it.
   that launch and follows it there.
 - **At most one remote card a launch**, and **at most one `sponsor` card in any 7 days** per person (counted from the day
   one was shown).
-- **Never** in the launch whose welcome just finished, over MausBot's first-launch card, during a live call, or while a
+- **Never** in the launch whose welcome just finished, over ACGS's first-launch card, during a live call, or while a
   move to My Cloud is under way (the built-in sponsor card's exclusions).
 - **Never on a branded build** (`brandStatus().source === "file"`), any kind, as the What's new popup.
 - **Sponsor cards** also skip a desktop whose organization's policy limits the AI providers (company models only, or a
